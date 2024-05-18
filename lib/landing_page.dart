@@ -49,17 +49,17 @@ class _StartPageState extends State<StartPage> {
                 // Navigate to sign in page
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
                 );
               },
               child: Container(
                 alignment: Alignment.center,
-              padding: EdgeInsets.only(left: 10,top: 5,right: 10,bottom: 5),
+              padding: const EdgeInsets.only(left: 10,top: 5,right: 10,bottom: 5),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white, width: 2.0),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
-                child: Text(
+                child: const Text(
                   'Skip',
                   style: TextStyle(
                     fontSize: 14,
@@ -88,14 +88,14 @@ class _StartPageState extends State<StartPage> {
               onTap: () {
                 if (_currentPageIndex < _pages.length - 1) {
                   _pageController.nextPage(
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     curve: Curves.ease,
                   );
                 } else {
                   // Navigate to sign in page
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 }
               },
@@ -125,7 +125,7 @@ class _StartPageState extends State<StartPage> {
               child: GestureDetector(
                 onTap: () {
                   _pageController.previousPage(
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     curve: Curves.ease,
                   );
                 },
@@ -135,7 +135,7 @@ class _StartPageState extends State<StartPage> {
                     border: Border.all(color: Colors.white, width: 2.0),
                     borderRadius: BorderRadius.circular(16.98),
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
                     size: 27.0,
@@ -151,7 +151,7 @@ class _StartPageState extends State<StartPage> {
 
   Widget _buildDot(bool isActive) {
     return Container(
-      margin: EdgeInsets.only(right: 5.0),
+      margin: const EdgeInsets.only(right: 5.0),
       width:  8.0,
       height:  8.0,
       decoration: BoxDecoration(

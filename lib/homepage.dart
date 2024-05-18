@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:fintech/community.dart';
 import 'package:fintech/firebase_interaction.dart';
 import 'package:fintech/home_list.dart';
+import 'package:fintech/profile.dart';
+import 'package:fintech/widgets/searchbar.dart';
 import 'package:fintech/widgets/sidebar.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key});
@@ -14,13 +16,11 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   int _selectedIndex = 0;
   String navbarText = 'Welcome Back Joseph!';
-  bool showSearchBar = true;
   bool showNotificationIcon = true;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      showSearchBar = index == 0;
       showNotificationIcon = index == 0;
       if (_selectedIndex == 0) {
         navbarText = 'Welcome Back Joseph!';
@@ -32,30 +32,91 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
+
   Widget _buildBody() {
     switch (_selectedIndex) {
       case 0:
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                '#Trending News',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
+        return SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomSearchBar(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  '#Trending News',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
+                ),
               ),
-            ),
-            HomeList(),
-          ],
+              HomeList(),
+            ],
+          ),
         );
       case 1:
-        return Center(
-          child: Text('Hello'),
+        return SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blue, // Add background color to the whole row
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade200,
+                              // Background color for the search bar
+                              borderRadius: BorderRadius.circular(20.0),
+                              border: Border.all(color: Colors.black),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Search...',
+                                  hintStyle: TextStyle(
+                                      fontSize: 20, fontWeight: FontWeight.w400),
+                                  prefixIcon: Icon(
+                                    Icons.search,
+                                  ),
+                                  border: InputBorder.none,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        GestureDetector(
+                          onTap:(){},
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Image.asset(
+                              'assets/images/Messenger.png',
+                              // Replace with your image path
+                              height: 50,
+                              width: 50,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CommunityPage(),
+                ),
+              ],
+            ),
+          ),
         );
       case 2:
-        return Center(
-          child: Text('Community'),
-        );
+        return Profile();
       default:
         return Container();
     }
@@ -64,7 +125,9 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      resizeToAvoidBottomInset: true,
+      appBar: _selectedIndex == 0
+          ? AppBar(
         titleSpacing: 8,
         title: Row(
           children: [
@@ -84,31 +147,8 @@ class _HomepageState extends State<Homepage> {
               ),
           ],
         ),
-        bottom: showSearchBar
-            ? PreferredSize(
-          preferredSize: Size.fromHeight(50.0),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                border: Border.all(color: Colors.black),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search...',
-                    prefixIcon: Icon(Icons.search),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        )
-            : null,
-      ),
+      )
+          : null,
       drawer: _selectedIndex == 0 ? Drawer(child: SideBar()) : null,
       body: _buildBody(),
       bottomNavigationBar: Padding(
@@ -119,19 +159,27 @@ class _HomepageState extends State<Homepage> {
             backgroundColor: Color.fromARGB(255, 23, 112, 202),
             elevation: 0,
             mouseCursor: SystemMouseCursors.grab,
-            items:  <BottomNavigationBarItem>[
+            items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                activeIcon: Image.asset('assets/images/globe.png',height: 24,color: Colors.black,),
-                icon: Image.asset('assets/images/globe.png',height: 24,color: Colors.white,),
-                label: 'community',
+                activeIcon: Image.asset(
+                  'assets/images/globe.png',
+                  height: 24,
+                  color: Colors.black,
+                ),
+                icon: Image.asset(
+                  'assets/images/globe.png',
+                  height: 24,
+                  color: Colors.white,
+                ),
+                label: 'Community',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person),
-                label: 'profile',
+                label: 'Profile',
               ),
             ],
             currentIndex: _selectedIndex,
@@ -144,4 +192,3 @@ class _HomepageState extends State<Homepage> {
     );
   }
 }
-
