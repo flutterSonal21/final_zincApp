@@ -16,7 +16,7 @@ class HomeList extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: SizedBox(// Wrap each item in a SizedBox with a fixed height
-                height: 140, // Adjust height as needed
+                height: 100, // Adjust height as needed
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 8),
                   decoration: BoxDecoration(

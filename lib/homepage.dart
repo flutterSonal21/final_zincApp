@@ -1,3 +1,4 @@
+import 'package:fintech/community_message.dart';
 import 'package:flutter/material.dart';
 import 'package:fintech/community.dart';
 import 'package:fintech/firebase_interaction.dart';
@@ -92,7 +93,9 @@ class _HomepageState extends State<Homepage> {
                         ),
                         SizedBox(width: 8),
                         GestureDetector(
-                          onTap:(){},
+                          onTap:(){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunityMessage()));
+                          },
                           child: Padding(
                             padding: const EdgeInsets.only(right: 8.0),
                             child: Image.asset(
@@ -149,7 +152,7 @@ class _HomepageState extends State<Homepage> {
         ),
       )
           : null,
-      drawer: _selectedIndex == 0 ? Drawer(child: SideBar()) : null,
+      drawer: _selectedIndex == 0 ? const Drawer(child: SideBar()):null,
       body: _buildBody(),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),

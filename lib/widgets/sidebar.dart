@@ -11,7 +11,7 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> {
-  User?_user;
+  User? _user;
   final FirebaseInteraction _firebase = FirebaseInteraction();
 
   @override
@@ -33,15 +33,9 @@ class _SideBarState extends State<SideBar> {
           UserAccountsDrawerHeader(
 
             decoration: const BoxDecoration(
-              image: DecorationImage(
-                  opacity: 0.4,
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/navback.jpg',)
-              ),
               color: Colors.grey,
             ),
-            accountName: Text(_user!.displayName??
-                '',
+            accountName: Text(_user!.displayName??'fintech',
               style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 17),
             ),
             accountEmail: Text(_user!.email!,
@@ -59,13 +53,6 @@ class _SideBarState extends State<SideBar> {
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
-            onTap: (){
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.dark_mode),
-            title: Text('dark mode'),
             onTap: (){
               Navigator.pop(context);
             },
