@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -53,14 +52,14 @@ class CustomTextField extends StatelessWidget {
           suffixIcon: IconButton(icon: Icon(suffixIcon), onPressed: onPressed),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.black45,
               width: 1,
             ),
           ),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Colors.black45,
                 width: 1,
               )),

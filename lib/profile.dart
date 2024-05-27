@@ -16,25 +16,25 @@ class Profile extends StatelessWidget {
               children: [
                  ClipRRect(
                    borderRadius: BorderRadius.circular(30),
-                   child: Container(
+                   child: SizedBox(
                      height: 50,
                      width: 50,
                      child: Image.asset('assets/images/1.jpeg',fit: BoxFit.cover,),
                    ),
                  ),
-                SizedBox(width: 10,),
-                Text('Joseph Daniel',style: TextStyle(fontSize: 20,color: Colors.blue),),
-                SizedBox(width: 100,),
-                IconButton(onPressed: (){}, icon: Icon(Icons.notifications_none_outlined,size: 30,))
+                const SizedBox(width: 10,),
+                const Text('Joseph Daniel',style: TextStyle(fontSize: 20,color: Colors.blue),),
+                const SizedBox(width: 100,),
+                IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none_outlined,size: 30,))
 
               ],
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Container(
               height: 180,
               width: double.infinity,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   colors: [
                     Color.fromARGB(255, 0, 115, 230),
                     Color.fromARGB(255, 80, 159, 238),
@@ -50,7 +50,7 @@ class Profile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                      Text('Portfolio',style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.w500),),
+                      const Text('Portfolio',style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.w500),),
                     Divider(
                       endIndent: 150,
                         thickness: 0.7,
@@ -58,13 +58,13 @@ class Profile extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Column(
+                        const Column(
                           children: [
                             Text('₹1476.98',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35),),
                             Text('+4.08(+2.0%)vs last week'),
                           ],
                         ),
-                        SizedBox(width: 40,),
+                        const SizedBox(width: 40,),
                         Image.asset('assets/images/upward.png',height: 70,)
                       ],
                     ),
@@ -74,12 +74,12 @@ class Profile extends StatelessWidget {
                       thickness: 0.7,
                       color: Colors.grey.shade600,
                     ),
-                    Text('Total Investment')
+                    const Text('Total Investment')
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -87,25 +87,25 @@ class Profile extends StatelessWidget {
                 children: [
                   GestureDetector(
                     child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       height: 40,
                       width: 100,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(color: Colors.black,style: BorderStyle.solid),
                       ),
-                      child: Text('Edit Profile'),
+                      child: const Text('Edit Profile'),
                     ),
                   ),
-                  Text('29 Connections',style: TextStyle(color: Colors.blue,fontSize: 18,fontWeight: FontWeight.w600),)
+                  const Text('29 Connections',style: TextStyle(color: Colors.blue,fontSize: 18,fontWeight: FontWeight.w600),)
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
               child: Text('My Stocks',style: TextStyle(fontWeight: FontWeight.bold),),
             ),
-            SizedBox(
+            const SizedBox(
               height: 300,
               width: double.infinity,
               child: StockListPage(),

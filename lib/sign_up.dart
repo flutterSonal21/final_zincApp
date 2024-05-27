@@ -1,8 +1,6 @@
 import 'package:fintech/firebase_interaction.dart';
-import 'package:fintech/homepage.dart';
 import 'package:fintech/signin_page.dart';
 import 'package:fintech/widgets/custom_text.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'widgets/custom_button.dart';
 import 'widgets/custom_textfield.dart';

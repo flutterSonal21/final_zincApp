@@ -11,6 +11,8 @@ class CarouselPage extends StatelessWidget {
     // Add more stock items here
   ];
 
+  CarouselPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return  Center(
@@ -21,7 +23,7 @@ class CarouselPage extends StatelessWidget {
             aspectRatio: 16/9,
             autoPlayCurve: Curves.fastOutSlowIn,
             enableInfiniteScroll: true,
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
             viewportFraction: 1,
           ),
           items: stockItems.map((item) => StockCarouselItem(item: item)).toList(),

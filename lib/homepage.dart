@@ -1,15 +1,13 @@
 import 'package:fintech/community_message.dart';
 import 'package:flutter/material.dart';
 import 'package:fintech/community.dart';
-import 'package:fintech/firebase_interaction.dart';
 import 'package:fintech/home_list.dart';
 import 'package:fintech/profile.dart';
 import 'package:fintech/widgets/searchbar.dart';
 import 'package:fintech/widgets/sidebar.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({Key? key});
-
+  const Homepage({super.key});
   @override
   State<Homepage> createState() => _HomepageState();
 }
@@ -37,13 +35,13 @@ class _HomepageState extends State<Homepage> {
   Widget _buildBody() {
     switch (_selectedIndex) {
       case 0:
-        return SingleChildScrollView(
+        return const SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomSearchBar(),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: Text(
                   '#Trending News',
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
@@ -61,22 +59,22 @@ class _HomepageState extends State<Homepage> {
                 Padding(
                   padding: const EdgeInsets.all(0),
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.blue, // Add background color to the whole row
                     ),
                     child: Row(
                       children: [
                         Expanded(
                           child: Container(
-                            margin: EdgeInsets.all(8),
+                            margin: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                               color: Colors.grey.shade200,
                               // Background color for the search bar
                               borderRadius: BorderRadius.circular(20.0),
                               border: Border.all(color: Colors.black),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8.0),
                               child: TextField(
                                 decoration: InputDecoration(
                                   hintText: 'Search...',
@@ -91,10 +89,9 @@ class _HomepageState extends State<Homepage> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         GestureDetector(
                           onTap:(){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>CommunityMessage()));
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(right: 8.0),
@@ -110,8 +107,8 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: CommunityPage(),
                 ),
               ],
@@ -119,7 +116,7 @@ class _HomepageState extends State<Homepage> {
           ),
         );
       case 2:
-        return Profile();
+        return const Profile();
       default:
         return Container();
     }
@@ -146,7 +143,7 @@ class _HomepageState extends State<Homepage> {
             if (showNotificationIcon)
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.notifications),
+                icon: const Icon(Icons.notifications),
               ),
           ],
         ),
@@ -159,11 +156,11 @@ class _HomepageState extends State<Homepage> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: BottomNavigationBar(
-            backgroundColor: Color.fromARGB(255, 23, 112, 202),
+            backgroundColor: const Color.fromARGB(255, 23, 112, 202),
             elevation: 0,
             mouseCursor: SystemMouseCursors.grab,
             items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: 'Home',
               ),
@@ -180,7 +177,7 @@ class _HomepageState extends State<Homepage> {
                 ),
                 label: 'Community',
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: 'Profile',
               ),

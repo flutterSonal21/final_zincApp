@@ -2,6 +2,8 @@ import 'package:fintech/models/communit_channels.dart';
 import 'package:fintech/widgets/carousel_item.dart';
 import 'package:flutter/material.dart';
 
+import 'community_message.dart';
+
 class CommunityPage extends StatelessWidget {
   const CommunityPage({super.key});
 
@@ -11,59 +13,61 @@ class CommunityPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('#Trending Stocks', textAlign: TextAlign.start),
+        const Text('#Trending Stocks', textAlign: TextAlign.start),
         CarouselPage(),
-        SizedBox(height: 10),
-        Text('#Community Channels'),
-        SizedBox(height: 10),
-        Container(
+        const SizedBox(height: 10),
+        const Text('#Community Channels'),
+        const SizedBox(height: 10),
+        SizedBox(
           width: width,
           child: Column(
             children: [
               CommunitChannels(
                 imagePath: 'assets/images/hin.jpeg',
                 text: 'Hindustan Unilever Ltd',
-                onJoinButtonPressed: () {},
+                onJoinButtonPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const CommunityMessage()));
+                },
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               CommunitChannels(
                 imagePath: 'assets/images/crudeoil.png',
                 text: 'Crude Oil Ltd',
                 onJoinButtonPressed: () {},
                 color: Colors.brown.shade600,
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               CommunitChannels(
                 imagePath: 'assets/images/reliance.png',
                 text: 'Reliance Industries',
                 onJoinButtonPressed: () {},
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               CommunitChannels(
                 imagePath: 'assets/images/hdfc.jpeg',
                 text: 'HDFC bank',
                 onJoinButtonPressed: () {},
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               CommunitChannels(
                 imagePath: 'assets/images/marico.png',
                 text: 'Marico',
                 onJoinButtonPressed: () {},
                 color: Colors.black,
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               CommunitChannels(
                 imagePath: 'assets/images/kotak.png',
                 text: 'Kotak Mahindra Bank',
                 onJoinButtonPressed: () {},
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               CommunitChannels(
                 imagePath: 'assets/images/kotak.png',
                 text: 'Kotak Mahindra Bank',
                 onJoinButtonPressed: () {},
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
             ],
           ),
         ),

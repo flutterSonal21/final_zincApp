@@ -69,12 +69,12 @@ class StateCommunityMessage extends State<CommunityMessage> {
                 children: [
                   IconButton(onPressed: (){
                     Navigator.of(context).pop();
-                  }, icon: Icon(Icons.arrow_back)),
-                  Text(
+                  }, icon: const Icon(Icons.arrow_back)),
+                  const Text(
                     "Hindustan Unilever Ltd",
                     style: TextStyle(color: Colors.black, fontSize: 18),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.asset(
@@ -102,7 +102,7 @@ class StateCommunityMessage extends State<CommunityMessage> {
                   ),
                 ],
               ),
-              Container(
+              SizedBox(
                 height: 150,
                 width: double.infinity,
                 child: Image.asset('assets/images/chart.png',fit: BoxFit.contain,),

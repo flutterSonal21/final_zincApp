@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 );}
               else{
-                return StartPage();
+                return const StartPage();
               }
             }
         ),),

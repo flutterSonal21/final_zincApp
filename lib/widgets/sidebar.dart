@@ -36,10 +36,10 @@ class _SideBarState extends State<SideBar> {
               color: Colors.grey,
             ),
             accountName: Text(_user!.displayName??'fintech',
-              style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 17),
+              style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 17),
             ),
             accountEmail: Text(_user!.email!,
-                style: TextStyle(color: Colors.black)),
+                style: const TextStyle(color: Colors.black)),
             currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
                 child: ClipOval(
@@ -51,23 +51,23 @@ class _SideBarState extends State<SideBar> {
                     ))),
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
             onTap: (){
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: Icon(Icons.help_outlined),
-            title: Text('About'),
+            leading: const Icon(Icons.help_outlined),
+            title: const Text('About'),
             onTap: (){
               Navigator.pop(context);
             },
           ),
 
           ListTile(
-            leading: Icon(Icons.logout),
-            title: Text('Logout'),
+            leading: const Icon(Icons.logout),
+            title: const Text('Logout'),
             onTap: (){
               _firebase.signOut(context);
             },

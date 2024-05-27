@@ -14,19 +14,19 @@ class FirebaseInteraction{
       // Navigate back to the login page
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginPage()), // Replace SignInPage() with your login page
+        MaterialPageRoute(builder: (context) => const LoginPage()), // Replace SignInPage() with your login page
       );
     } catch (e) {
       print('Error signing out: $e');
     }
   }
 
-  void signUp(BuildContext context ,TextEditingController _emailController,TextEditingController _passwordController ) async {
+  void signUp(BuildContext context ,TextEditingController emailController,TextEditingController passwordController ) async {
     try {
       final auth = FirebaseAuth.instance;
       await auth.createUserWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
+        email: emailController.text,
+        password: passwordController.text,
       );
       // Navigate to the home page after successful sign-up
       Navigator.pushReplacement(
@@ -89,7 +89,7 @@ class FirebaseInteraction{
       print('Email sign-in error: $e');
       // Show error message to the user
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Failed to sign in. Please check your credentials.'),
         ),
       );

@@ -12,8 +12,8 @@ class CustomSearchBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
             border: Border.all(color: Colors.black),
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: TextField(
               decoration: InputDecoration(
                 hintText: 'Search...',

@@ -13,16 +13,16 @@ class StockItem {
 class StockCarouselItem extends StatelessWidget {
   final StockItem item;
 
-  StockCarouselItem({required this.item});
+  const StockCarouselItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5.0),
+      margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black26,
             blurRadius: 6.0,
@@ -38,7 +38,7 @@ class StockCarouselItem extends StatelessWidget {
           children: [
             Text(
               item.name,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
               ),
@@ -50,21 +50,21 @@ class StockCarouselItem extends StatelessWidget {
                  fontSize: 13
               ),
             ),
-            SizedBox(height: 4.0),
+            const SizedBox(height: 4.0),
             Row(
               children: [
                 Text(
                   '₹${item.price.toStringAsFixed(2)}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 23.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.blue
                   ),
                 ),
-                SizedBox(width: 8.0),
+                const SizedBox(width: 8.0),
                 Text(
                   '+₹${item.increment.toStringAsFixed(2)}(+${item.percentage.toStringAsFixed(2)}%)',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12.0,
                     color: Colors.green,
                   ),

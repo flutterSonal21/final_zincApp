@@ -2,6 +2,8 @@ import 'package:fintech/signin_page.dart';
 import 'package:flutter/material.dart';
 
 class StartPage extends StatefulWidget {
+  const StartPage({super.key});
+
   @override
   _StartPageState createState() => _StartPageState();
 }
@@ -9,12 +11,12 @@ class StartPage extends StatefulWidget {
 class _StartPageState extends State<StartPage> {
   int _currentPageIndex = 0;
 
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
 
-  List<Widget> _pages = [
-    FirstPage(),
-    SecondPage(),
-    ThirdPage(),
+  final List<Widget> _pages = [
+    const FirstPage(),
+    const SecondPage(),
+    const ThirdPage(),
   ];
 
   @override
@@ -163,6 +165,8 @@ class _StartPageState extends State<StartPage> {
 }
 
 class FirstPage extends StatelessWidget {
+  const FirstPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Image.asset('assets/images/3.jpeg',fit: BoxFit.cover,);
@@ -170,6 +174,8 @@ class FirstPage extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Image.asset('assets/images/2.jpeg',fit: BoxFit.cover,);
@@ -177,6 +183,8 @@ class SecondPage extends StatelessWidget {
 }
 
 class ThirdPage extends StatelessWidget {
+  const ThirdPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Image.asset('assets/images/1.jpeg',fit: BoxFit.cover,);

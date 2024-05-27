@@ -2,7 +2,7 @@ import 'package:fintech/models/trending_news_model.dart';
 import 'package:flutter/material.dart';
 
 class HomeList extends StatelessWidget {
-  const HomeList({Key? key}) : super(key: key);
+  const HomeList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,10 @@ class HomeList extends StatelessWidget {
             TrendingNewsModel news = NewsData.getTrendingNews()[index];
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
-              child: SizedBox(// Wrap each item in a SizedBox with a fixed height
-                height: 100, // Adjust height as needed
+              child: SizedBox(
+                height: 100,
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  margin: const EdgeInsets.symmetric(horizontal: 8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16), // Curves the corners
                   ),
@@ -28,13 +28,13 @@ class HomeList extends StatelessWidget {
                       Expanded(
                         flex: 6,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(20),
                             bottomLeft: Radius.circular(20),
                           ),
                           child: Container(
-                            margin: EdgeInsets.only(right: 2),
-                            child: Container(
+                            margin: const EdgeInsets.only(right: 2),
+                            child: SizedBox(
                               height: 140,
                               width: 150,
                               child: news.image,
@@ -49,13 +49,13 @@ class HomeList extends StatelessWidget {
                           children: [
                             Text(
                               news.heading,
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                             ),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             Flexible(
                               child: Text(
                                 news.content,
-                                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 11),
+                                style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 11),
                                 overflow: TextOverflow.fade,
 
                               ),

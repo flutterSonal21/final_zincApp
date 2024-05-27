@@ -7,18 +7,19 @@ class CommunitChannels extends StatelessWidget {
   final Color? color;
 
   const CommunitChannels({
-    Key? key,
+    super.key,
     required this.imagePath,
     required this.text,
-    required this.onJoinButtonPressed, this.color,
-  }) : super(key: key);
+    required this.onJoinButtonPressed,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(6.0),
+      padding: const EdgeInsets.all(6.0),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 0, 115, 230),
+        color: const Color.fromARGB(255, 0, 115, 230),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Row(
@@ -39,11 +40,11 @@ class CommunitChannels extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Colors.white
@@ -56,14 +57,14 @@ class CommunitChannels extends StatelessWidget {
               onTap:onJoinButtonPressed,
               child: Container(
 
-                padding: EdgeInsets.symmetric(vertical: 5,horizontal: 16),
+                padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white
                 ),
                 height: 30,
                 width: 60,
-                child: Text('Join',style: TextStyle(color: Colors.blue),),
+                child: const Text('Join',style: TextStyle(color: Colors.blue),),
               ),
             ),
           ),
